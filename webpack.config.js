@@ -2,7 +2,7 @@
 const path = require('path')
 module.exports = [{
     entry: {
-        app: ['./lib/main.js'],
+        app: ['babel-polyfill', './lib/main.js'],
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -12,14 +12,14 @@ module.exports = [{
     devtool: 'inline-source-map',
     module: {
         rules: [{
-            test: /.js?$/,
+            test: /\.js?$/,
             exclude: /(node_modules|bower_components)/,
             loader: 'babel-loader',
         }, {
-            test: /.json$/,
+            test: /\.json$/,
             loader: 'json-loader',
         }, {
-            test: /.css$/,
+            test: /\.css$/,
             loader: 'style-loader!css-loader',
         }],
     },
